@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition</title>
+    <link rel="stylesheet" href="/comp.css">
+</head>
+<body>
+    <div class="values">
+        <div id="tens" class="value">0</div>
+        <div id="ones" class="value">0</div>
+    </div>
+    <div class="spin">
+        <button class="spin_btn">spin</button>
+    </div>
+    <div class="result_value"></div>
+    <div class="btn_space">
+        <input class="btn green" type="button" value="カードを作成" onclick="window.open('http://localhost:3000/sheet')">
+        <input class="btn red" type="button" value="リセット" onclick="window.location.reload();" />
+    </div>
+    
+
+    
+    <script>
+        const min = 1
+        const max = 99
+        const result_list = []
+        var count = 0
+
+        var spin_btn = document.querySelector(".spin")
+        var create_btn = document.querySelector(".btn")
+        var ones = document.querySelector("#ones")
+        var tens = document.querySelector("#tens")
+        var result_value = document.querySelector(".result_value")
+
+        spin_btn.addEventListener('click', () => {
+            if(count == 99) {
+                result_value.style.backgroundColor = "red"
+                return
+            }
+            var random_value = Math.floor( Math.random() * (max - min + 1)) + min;
+            while(result_list.includes(random_value)) {
+                random_value = Math.floor( Math.random() * (max - min + 1)) + min;
+            }
+            output = output_value(random_value)
+            ones.innerText = output[0]
+            tens.innerText = output[1]
+            push_result(random_value)
+            result_list.push(random_value)
+            count += 1
+        })
+        
+        const output_value = (value) => {
+            var ones = value%10
+            var tens = Math.floor(value/10)
+            return [ones, tens]
+        }
+
+        const push_result = (value) => {
+            var result_div = document.createElement('div')
+            result_div.innerText = value 
+            result_div.classList.add("result")
+            console.dir(result_div)
+            result_value.appendChild(result_div)
+        }
+    </script>
+</body>
+</html>

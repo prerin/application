@@ -1,0 +1,40 @@
+.board {
+    width: 460px;
+    height: 210px;
+    padding: 10px 40px;
+    background-color: #99FFCC;
+    text-align: center;
+}
+
+.btn-success {
+    width: 460px;
+    height: 95px;
+    padding: 10px 40px;
+    background-color: #99FFCC;
+    border: none;
+    font-size: 50px;
+}
+
+.board h1 {
+    font-size: 48px;
+    color: #fff;
+}
+
+input {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.d-block form {
+    background-color: #93FFAB;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.d-block form:nth-child(1) {
+    margin-top: 0;
+}
+
+.nothing {
+    display: none;
+}

@@ -1,0 +1,77 @@
+body {
+    background-color: #eee;
+}
+
+.values {
+    display: flex;
+    justify-content: center;
+}
+
+.value {
+    width: 250px;
+    height: 250px;
+    font-size: 200px;
+    font-weight: 600;
+    margin: 20px;
+    color: #3399FF;
+    background-color: white;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 250px;
+}
+
+.spin {
+    text-align: center;
+}
+
+.spin_btn {
+    width: 440px;
+    height: 35px;
+    color: white;
+    background-color: #CC3300;
+    font-size: 25px;
+    border-color: white;
+    border-radius: 5px;
+}
+
+.result_value {
+    width: 550px;
+    height: 400px;
+    margin: 20px auto;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.result {
+    width: 30px;
+    height: 30px;
+    font-size: 17px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+}
+
+.btn {
+    width: 200px;
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.btn_space {
+    display: flex;
+    justify-content: center;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}

@@ -1,0 +1,30 @@
+.cal {
+    width: 180px;
+    margin: 50px auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    background-color: maroon;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+input {
+    width: 135px;
+    font-size: 30px;
+    text-align: right;
+}
+
+button { 
+    width: 45px;
+    height: 45px;
+    font-size: 30px;
+    background-color: #eee;
+}

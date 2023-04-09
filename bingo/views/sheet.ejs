@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheet</title>
+    <link rel="stylesheet" href="/sheet.css">
+</head>
+<body>
+    <div class="sheet">
+        <h5>BINGO CARD</h5>
+        <div class="value_list">
+            <% for (let i=0;i<25;i++) { %>
+                <button class="value"></button>
+            <% } %>
+        </div>
+    </div>
+    <input class="btn" type="button" value="CHANGE" onclick="window.location.reload();" />
+    <script>
+        const min = 1
+        const max = 99
+        const values = []
+
+        var value_list = document.querySelector(".value_list")
+        var create_btn = document.querySelector(".create_btn")
+        var value_btns = document.querySelectorAll(".value")
+
+        window.onload = function() {
+            for(let i=0; i<25; i++) {
+                if(i == 12) {
+                    value_btns[i].innerText = "⭐️"
+                    continue
+                }
+                var random_value = Math.floor( Math.random() * (max - min + 1)) + min;
+                while(values.includes(random_value)) {
+                    random_value = Math.floor( Math.random() * (max - min + 1)) + min;
+                }
+                value_btns[i].innerText = random_value
+                values.push(random_value)
+            }
+        }
+
+        value_btns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                console.dir(btn)
+                btn.style.backgroundColor = "#777"
+                btn.disable = true
+            })
+        })
+    </script>
+</body>
+</html>

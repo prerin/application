@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <div class="cal">
+        <div class="title">
+            電卓
+        </div>
+        <div class="flex">
+            <input type="text" class="output_form" value="0">
+            <button type="button" class="clear_btn">C</button>
+        </div>
+        <div class="flex">
+            <button type="button" class="num_btn">7</button>
+            <button type="button" class="num_btn">8</button>
+            <button type="button" class="num_btn">9</button>
+            <button type="button" class="div_btn">÷</button>
+        </div>
+        <div class="flex">
+            <button type="button" class="num_btn">4</button>
+            <button type="button" class="num_btn">5</button>
+            <button type="button" class="num_btn">6</button>
+            <button type="button" class="mul_btn">x</button>
+        </div>
+        <div class="flex">
+            <button type="button" class="num_btn">1</button>
+            <button type="button" class="num_btn">2</button>
+            <button type="button" class="num_btn">3</button>
+            <button type="button" class="sub_btn">-</button>
+        </div>
+        <div class="flex">
+            <button type="button" class="num_btn">0</button>
+            <button type="button" class="dec_btn">.</button>
+            <button type="button" class="plus_btn">+</button>
+            <button type="button" class="equ_btn">=</button>
+        </div>
+    </div>
+
+    <script>
+        var num_btn = document.querySelectorAll(".num_btn")
+        var plus_btn = document.querySelector(".plus_btn")
+        var sub_btn = document.querySelector(".sub_btn")
+        var mul_btn = document.querySelector(".mul_btn")
+        var div_btn = document.querySelector(".div_btn")
+        var equ_btn = document.querySelector(".equ_btn")
+        var dec_btn = document.querySelector(".dec_btn")
+        var clear_btn = document.querySelector(".clear_btn")
+        var output_form = document.querySelector(".output_form")
+
+        var pre_value = 0
+        var cal_flag = ""
+        var btn_flag = false
+        var dec_flag = false
+
+        num_btn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                output(Number(btn.innerText))
+            })
+        })
+
+        plus_btn.addEventListener('click', () => {
+            if(btn_flag == false) {
+                return
+            }
+            pre_cal()
+            cal_flag = "+"
+            reset_btn()
+            plus_btn.style.backgroundColor = "#bbb"
+        })
+
+        sub_btn.addEventListener('click', () => {
+            if(btn_flag == false) {
+                return
+            }
+            pre_cal()
+            cal_flag = "-"
+            reset_btn()
+            sub_btn.style.backgroundColor = "#bbb"
+        })
+
+        mul_btn.addEventListener('click', () => {
+            if(btn_flag == false) {
+                return
+            }
+            pre_cal()
+            cal_flag = "*"
+            reset_btn()
+            mul_btn.style.backgroundColor = "#bbb"
+        })
+
+        div_btn.addEventListener('click', () => {
+            if(btn_flag == false) {
+                return
+            }
+            pre_cal()
+            cal_flag = "/"
+            reset_btn()
+            div_btn.style.backgroundColor = "#bbb"
+        })
+
+        clear_btn.addEventListener('click', () => {
+            output_form.value = '0'
+            pre_value = 0
+            cal_flag = ''
+            dec_flag = false
+            btn_flag = false
+            dec_btn.style.pointerEvents = "auto"
+            reset_btn()
+        })
+
+        dec_btn.addEventListener('click', () => {
+            dec_flag = true
+            output_form.value = `${output_form.value}.`
+            dec_btn.style.pointerEvents = "none"
+            btn_flag = true
+        })
+
+
+        equ_btn.addEventListener('click', () => {
+            var cur_value = Number(output_form.value)
+            reset_btn()
+            if(cal_flag == "+") {
+                var value = pre_value + cur_value
+                output_value(value)
+            } else if(cal_flag == "-") {
+                var value = pre_value - cur_value
+                output_value(value)
+            } else if(cal_flag == "*") {
+                var value = pre_value * cur_value
+                output_value(value)
+            } else if(cal_flag == "/") {
+                var value = pre_value / cur_value
+                output_value(value)
+            } else {
+                output_form.value = "手順通りにお願いします"
+            }
+        })
+
+
+
+        const output = (num) => {
+            if(dec_flag && output_form.value !== "0"){
+                output_form.value = `${output_form.value}${num}`
+                dec_flag = false
+            } else if(output_form.value !== "0") {
+                output_form.value = num + Number(output_form.value)*10
+            } else {
+                output_form.value = num
+                btn_flag = true
+            }
+        }
+
+        const pre_cal = () => {
+            if(!cal_flag) {
+                pre_value = Number(output_form.value)
+                output_form.value = "0"
+            }
+        }
+
+        const output_value = (value) => {
+            output_form.value = value
+            cal_flag = ''
+        }
+
+        const reset_btn = () => {
+            plus_btn.style.backgroundColor = "#eee"
+            sub_btn.style.backgroundColor = "#eee"
+            mul_btn.style.backgroundColor = "#eee"
+            div_btn.style.backgroundColor = "#eee"
+        }
+    </script>
+</body>
+</html>
