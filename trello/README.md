@@ -14,8 +14,8 @@ nodemon app.jsでローカルに起動することができます。<br>
 ## Note
 pathが /homeとなっているため、起動した後のurlはhttp://localhost:3000/home/とする必要があります。
 
-## File Configuration
+## Configuration
 * app.js:  実行用ファイル
 * model:  mongodb用のデータの宣言を格納するフォルダ
 * view:  ejsファイルを格納するフォルダ
-* public:  ejsを動かすためのjavascriptやcssを格納するファイル
+* public:  ejsを動かすためのjavascriptやcssを格納するフォルダ
