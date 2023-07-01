@@ -1,0 +1,36 @@
+.ml50 {
+    margin-left: 40%;
+}
+
+#cont {
+    margin-top: 100px;
+}
+
+#genre {
+    background-color: #ccc;
+    padding: 15px;
+}
+
+#article {
+    width: 330px;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+#article img {
+    width: 170px;
+}
+
+#article .info {
+    width: 160px;
+    text-align: center;
+    padding: 5px;
+}
+
+.btns {
+    border: none;
+    background-color: transparent;
+    padding: 0 0 5px;
+}
