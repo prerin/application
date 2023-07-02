@@ -19,7 +19,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse ml50" id="navbarSupportedContent">
+            <!-- <div class="collapse navbar-collapse ml50" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">雑誌一覧</a>
@@ -35,7 +35,7 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-            </div>
+            </div> -->
         </div>
     </nav>
     
@@ -52,15 +52,49 @@
         <div class="col-1"></div>
         <div class="col-2" id="genre">
             <h5 class="border-bottom border-dark mb-3">雑誌一覧</h5>
-            <p><a>ジャンプ</a></p>
-            <p><a>マガジン</a></p>
-            <p><a>サンデー</a></p>
-            <p><a>チャンピオン</a></p>
-            <p><a>モーニング</a></p>
-            <p><a>スピリッツ</a></p>
-            <p><a>ヤングジャンプ</a></p>
-            <p><a>ヤングマガジン</a></p>
+            <p class="mb-0"><button class="btns ab_btn">></button>&nbsp;ジャンプ</p>
+            <ul class="ps-1 comic_list" type="none">
+                {% for comic in comic_list %}
+                    {% if comic.published == "ジャンプ" %}
+                        <li><a class="comic_title" href="/comic/{{comic.id}}">{{comic.title}}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <p class="mb-0"><button class="btns ab_btn">></button>&nbsp;マガジン</p>
+            <ul class="ps-1 comic_list" type="none">
+                {% for comic in comic_list %}
+                    {% if comic.published == "マガジン" %}
+                        <li><a class="comic_title" href="/comic/{{comic.id}}">{{comic.title}}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <p class="mb-0"><button class="btns ab_btn">></button>&nbsp;サンデー</p>
+            <ul class="ps-1 comic_list" type="none">
+                {% for comic in comic_list %}
+                    {% if comic.published == "サンデー" %}
+                        <li><a class="comic_title" href="/comic/{{comic.id}}">{{comic.title}}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         </div>
     </div>
+
+    <script>
+        ab_btn = document.querySelectorAll('.ab_btn');
+        comic_list = document.querySelectorAll('.comic_list');
+
+        ab_btn.forEach(function (btn, i) {
+            btn.addEventListener('click', () => {
+                if (btn.innerText == ">") {
+                    comic_list[i].style.display = "block";
+                    btn.innerText = "∨";
+                } else {
+                    comic_list[i].style.display = "none";
+                    btn.innerText = ">";
+                }
+                
+            });
+        });
+    </script>
 </body>
 </html>

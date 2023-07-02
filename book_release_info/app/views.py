@@ -10,7 +10,9 @@ def home(request):
 
 def comic(request, id):
     comic_info = get_items_by_id(id)
+    comic_list = all_items()
     ctx = {
-        "comic": comic_info
+        "comic": comic_info,
+        "comic_list": comic_list
     }
     return render(request, 'comic/index.html', ctx)

@@ -11,3 +11,17 @@
     padding: 20px;
 }
 
+.btns {
+    border: none;
+    background-color: transparent;
+    padding: 0 0 5px;
+}
+
+.comic_title {
+    color: black;
+    text-decoration: none;
+}
+
+.comic_list {
+    display: none;
+}
