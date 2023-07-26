@@ -1,0 +1,24 @@
+.containers {
+    padding: 0 30%;
+}
+
+h1 {
+    margin: 40px 0;
+    padding: 10px 0;
+    border-bottom: solid 2px #ccc;
+}
+
+.columns {
+    background-color: #333;
+    color: white;
+}
+
+.info {
+    background-color: #ccc;
+}
+
+.comp {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 0;
+}
