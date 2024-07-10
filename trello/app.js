@@ -65,3 +65,39 @@ app.post('/home/:id', async (req, res) => {
 app.listen(3000, () => {
     console.log('リクエストをポート3000で待機中....')
 })
+
+// router.get("/list", (req, res, next) => {
+// 	const user_id = 999;
+// 	var date;
+// 	if(req.query.date) {
+// 		date = new Date(req.query.date);
+// 	} else {
+// 		date = new Date();
+// 	}
+//     const startDay = new Date(date.getFullYear(), date.getMonth()-1, 1);
+//     const testdata = new Date(date.getFullYear(), date.getMonth(), 1);
+// 	console.log("startday" + startDay);
+// 	console.log("endday" + testdata);
+// 	db.all(`SELECT id, published_date from photodb where user_id=? AND published_date >= ? and published_date < ?`, user_id, startDay, testdata, (err, rows) => {
+// 		if (err) {
+//             res.status(400).json({
+//                 "status": "error",
+//                 "message": err.message
+//             });
+//             return;
+//         } else {
+//             var list = [];
+//             rows.forEach(row => {
+//                 var json = {};
+//                 json.id = row['id'];
+//                 json.user_id = user_id;
+//                 json.user_name = 'teamC';
+//                 const date = new Date();
+//                 date.setTime(parseInt(row['published_date'], 10));
+//                 json.timestamp = toISOStringWithTimezone(date);
+//                 list.push(json);
+//             });
+//             res.status(200).json(list);
+//         }
+// 	})
+// })
